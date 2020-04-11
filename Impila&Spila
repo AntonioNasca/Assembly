@@ -1,0 +1,36 @@
+		MOV		R5,#5
+		ADR		R1,STRING
+		LDR		R2,[R1]
+RITORNA	CMP		R2,#0
+		BEQ		MENU
+		BNE		IMPILARE
+		
+		
+IMPILARE
+		SUB		SP,SP,#4
+		STR		R2,[SP]
+		B		INC
+		
+SPILARE
+		LDR		R3,[SP]
+		ADD		SP,SP,#4
+		SUB		R5,R5,#1
+		B		MENU
+		
+INC
+		ADD		R1,R1,#4
+		LDR		R2,[R1]
+		B		RITORNA
+		
+		
+MENU
+		CMP		R5,#0
+		ADD		R6,R6,R5
+		BEQ		FINE
+		BNE		SPILARE
+		
+FINE		END
+		
+		
+		
+STRING	dcd		1,2,3,4,5,0

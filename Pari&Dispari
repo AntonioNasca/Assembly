@@ -1,0 +1,35 @@
+			ADR		R1,STRINGA
+			LDR		R2,[R1]
+RITORNA		CMP		R2,#0
+			BEQ		FINE
+			BNE		CONTROLLA
+			
+			
+CONTROLLA
+			SUB		R2,R2,#2
+			CMP		R2,#0
+			BEQ		CONTAPARI
+			CMP		R2,#-1
+			BEQ		CONTADISPARI
+			BNE		CONTROLLA
+			
+			
+			
+CONTAPARI
+			ADD		R4,R4,#1
+			ADD		R1,R1,#4
+			LDR		R2,[R1]
+			B		RITORNA
+			
+CONTADISPARI
+			ADD		R5,R5,#1
+			ADD		R1,R1,#4
+			LDR		R2,[R1]
+			B		RITORNA
+			
+FINE			END
+			
+			
+			
+STRINGA		DCD		14,9,8,22,3,77,99,0
+			

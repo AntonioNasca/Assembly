@@ -1,0 +1,30 @@
+			ADR		R1,STRING
+			LDR		R2,[R1]
+			ADD		R1,R1,#4
+			LDR		R3,[R1]
+RITORNA		CMP		R2,R3
+			BGT		MAGGIORER2
+			BNE		MAGGIORER3
+			
+MAGGIORER2
+			MOV		R4,R2
+			B		INC
+			
+MAGGIORER3
+			MOV		R4,R3
+			B		INC
+			
+			
+INC
+			ADD		R1,R1,#4
+			LDR		R2,[R1]
+			CMP		R2,#0
+			BEQ		FINE
+			B		RITORNA
+			
+FINE			END
+			
+			
+			
+			
+STRING		DCD		22,25,23,6,5,47

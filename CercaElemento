@@ -1,0 +1,25 @@
+		ADR		R1,ELEMENTI
+		LDR		R2,[R1]
+		ADR		R3,CERCO
+		LDR		R4,[R3]
+RITORNA	CMP		R2,R4
+		BEQ		TROVATO
+		BNE		INC
+		
+INC
+		ADD		R1,R1, #4
+		LDR		R2,[R1]
+		CMP		R1,#0
+		BEQ		TROVATO
+		BNE		RITORNA
+		
+		
+		
+TROVATO	END
+		
+		
+		
+		
+ELEMENTI	DCD		22,25,23,6,5,47
+		
+CERCO	DCD		5

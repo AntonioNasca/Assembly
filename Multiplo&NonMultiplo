@@ -1,0 +1,38 @@
+			ADR		R1,STRING
+			LDR		R2,[R1]
+			CMP		R1,#0
+			BEQ		FINE
+			ADD		R1,R1,#4
+			LDR		R3,[R1]
+RITORNA		CMP		R2,#0
+			BEQ		FINE
+			BNE		CALCOLA
+			
+			
+CALCOLA
+			ADD		R4,R4,R3
+			CMP		R4,R2
+			BEQ		MULTIPLO
+			CMP		R4,R2
+			BGT		NONMULTIPLO
+			BNE		CALCOLA
+			
+INC			ADD		R1,R1,#4
+			LDR		R2,[R1]
+			ADD		R1,R1,#4
+			LDR		R3,[R1]
+			MOV		R4,#0
+			B		RITORNA
+			
+MULTIPLO
+			ADD		R10,R10,#1
+			B		INC
+			
+NONMULTIPLO
+			ADD		R11,R11,#1
+			B		INC
+			
+FINE
+			END
+			
+STRING		DCD		12,6,14,7,9,3,34,2,10,9,17,3,0,10

@@ -1,0 +1,33 @@
+		ADR		R1,ELEMENTI
+		LDR		R2,[R1]
+		ADD		R1,R1,#4
+		LDR		R3,[R1]
+RITORNA	CMP		R2,R3
+		BGT		MINORER3
+		BNE		MINORER2
+		
+		
+MINORER2
+		MOV		R4,R2
+		ADD		R1,R1,#4
+		LDR		R3,[R1]
+		CMP		R3,#0
+		BEQ		FINE
+		BNE		RITORNA
+		
+MINORER3
+		MOV		R4,R3
+		ADD		R1,R1,#4
+		LDR		R2,[R1]
+		CMP		R2,#0
+		BEQ		FINE
+		BNE		RITORNA
+		
+FINE		END
+		
+		
+		
+		
+		
+ELEMENTI	DCD		22,25,23,6,5,47
+		
